@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+
+  teachers: (string | string)[] =
+    [
+      'Jill Smith', 'password123',
+      'Joe Bloggs', 'password456'
+    ];
 
   ngOnInit(): void {
+    this.loopTeachers(this.teachers);
   }
+
+  loopTeachers(array) {
+    for (let index in array) {
+      console.log(array[index]);
+    }
+  }
+
+  //loginToCircleTime(){
+  // this.router.navigate('consent')
+  //}
 
 }
