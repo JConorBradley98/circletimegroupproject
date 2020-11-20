@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Teacher } from '../../models';
 
 @Component({
   selector: 'app-login',
@@ -7,25 +10,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  constructor(private router: Router) {
+    this.router = router;
+  }
 
-  teachers: (string | string)[] =
+  userLogin = new FormGroup(
+    {
+      userEmail: new FormControl(
+        [Validators.required, Validators.minLength(4)]
+      ),
+      userPassword: new FormControl(
+        Validators.required
+      )
+    }
+  );
+
+  teachers: Teacher[] =
     [
-      'Jill Smith', 'password123',
-      'Joe Bloggs', 'password456'
+      {email: 'jillsmith02@c2kni.org', password: 'password123'},
+      {email:'joebloggs01@c2kni.org', password:'password456'}
     ];
 
   ngOnInit(): void {
-    this.loopTeachers(this.teachers);
+    localStorage.clear();
+    this.populateTeachers(this.teachers);
   }
 
-  loopTeachers(array) {
+  populateTeachers(array) {
     for (let index in array) {
-      console.log(array[index]);
+      localStorage.setItem('teacher' + index, array[index]);
     }
   }
 
-  //loginToCircleTime(){
-  // this.router.navigate('consent')
-  //}
+  loginToCircleTime() {
+    //if (this.userLogin.get('userEmail').value === this.teachers[0]) {
+    //  this.router.navigateByUrl('/consent')
+    //}
+    this.router.navigateByUrl('/consent')
+  }
 
 }
