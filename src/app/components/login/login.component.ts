@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Teacher } from '../../models';
+import { User, UserType } from '../../models';
 
 @Component({
   selector: 'app-login',
@@ -25,28 +25,27 @@ export class LoginComponent implements OnInit {
     }
   );
 
-  teachers: Teacher[] =
-    [
-      {email: 'jillsmith02@c2kni.org', password: 'password123'},
-      {email:'joebloggs01@c2kni.org', password:'password456'}
+  users: User[] = [
+      {email: 'jillsmith02@c2kni.org', password: 'password123', userType: UserType.Teacher},
+      {email:'joebloggs01@c2kni.org', password:'password456', userType: UserType.Teacher},
+      {email:'ollieowens04@c2kni.org', password:'password789', userType: UserType.Pupil},
+      {email:'miamurray07@c2kni.org', password:'password1011', userType: UserType.Pupil},
     ];
 
+
+
   ngOnInit(): void {
+    // Clear localStorage to prevent navigation
     localStorage.clear();
-    this.populateTeachers(this.teachers);
+  
   }
 
-  populateTeachers(array) {
-    for (let index in array) {
-      localStorage.setItem('teacher' + index, array[index]);
-    }
-  }
 
   loginToCircleTime() {
-    //if (this.userLogin.get('userEmail').value === this.teachers[0]) {
-    //  this.router.navigateByUrl('/consent')
-    //}
-    this.router.navigateByUrl('/consent')
+   // If user is in either teacher or user array
+   // Accept user -> Store in localStorage -> Navigate to Consent -> Dashboard
+   // Else, Decline User -> Show Error Message
+    this.router.navigateByUrl('/consent');
   }
 
 }

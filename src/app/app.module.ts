@@ -3,16 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { ConsentScreenComponent } from './components/consent-screen/consent-screen.component';
-import { CircleTimeComponent } from './components/circle-time/circle-time.component';
+import { CircleTimeComponent, ConsentScreenComponent, LoginComponent } from './components';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ConsentScreenComponent,
-    CircleTimeComponent
+    CircleTimeComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

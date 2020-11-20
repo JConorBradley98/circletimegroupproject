@@ -1,11 +1,12 @@
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ConsentScreenComponent } from './components/consent-screen/consent-screen.component';
-import { LoginComponent } from './components/login/login.component';
+import { CircleTimeComponent, ConsentScreenComponent, LoginComponent } from './components';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'consent', component: ConsentScreenComponent },
+  { path: 'circle-time', component: CircleTimeComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
@@ -14,3 +15,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+4
