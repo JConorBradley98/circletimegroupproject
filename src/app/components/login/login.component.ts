@@ -37,13 +37,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     // Clear localStorage to prevent navigation
     localStorage.clear();
+    // this.authenticateUser()
 
-  }
-
-  authenticateUser() {
-    for (let index of this.users) {
-      console.log()
-    }
   }
 
 
