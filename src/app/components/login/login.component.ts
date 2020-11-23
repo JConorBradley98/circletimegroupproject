@@ -41,7 +41,9 @@ export class LoginComponent implements OnInit {
   }
 
   authenticateUser() {
-
+    for (let index of this.users) {
+      console.log()
+    }
   }
 
 
