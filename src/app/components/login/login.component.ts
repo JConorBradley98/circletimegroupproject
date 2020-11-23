@@ -40,6 +40,10 @@ export class LoginComponent implements OnInit {
 
   }
 
+  authenticateUser() {
+
+  }
+
 
   loginToCircleTime() {
     // If user is in either teacher or user array
