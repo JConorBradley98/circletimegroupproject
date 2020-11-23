@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-circle-time',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./circle-time.component.sass']
 })
 export class CircleTimeComponent implements OnInit {
+
+  images = [
+    "../../../assets/teddy.png"
+  ];
 
   constructor() { }
 
@@ -16,14 +21,15 @@ export class CircleTimeComponent implements OnInit {
     ev.preventDefault();
   }
 
-  drag(ev) {
+  dragItem(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
   }
 
-  drop(ev) {
+  dropItem(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
 
   }
 }
+
