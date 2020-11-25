@@ -16,7 +16,9 @@ export class CircleTimeComponent implements OnInit {
     "../../../assets/pillow_purple.png",
     "../../../assets/pillow_red.png",
     "../../../assets/pillow_turquoise.png",
-    "../../../assets/pillow_yellow.png"
+    "../../../assets/pillow_yellow.png",
+    "../../../assets/handup.png",
+    "../../../assets/ellipse.png"
   ];
 
   constructor() { }
