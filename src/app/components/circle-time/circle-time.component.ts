@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-
+import { AuthService } from '../../index'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-circle-time',
   templateUrl: './circle-time.component.html',
@@ -21,9 +22,13 @@ export class CircleTimeComponent implements OnInit {
     "../../../assets/ellipse.png"
   ];
 
-  constructor() { }
+  constructor(private router: Router, private authService: AuthService) {
+    this.router = router;
+    this.authService = authService;
+  }
 
   ngOnInit(): void {
+    this.authService.reDirect(this.router);
   }
 
   allowDrop(ev) {

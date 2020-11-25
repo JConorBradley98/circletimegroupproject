@@ -34,9 +34,10 @@ export class AuthService {
     }
   }
 
-  public logout() {
+  public logout(router: Router) {
     localStorage.removeItem('ACCESS_TOKEN');
     localStorage.removeItem('USER_NAME');
+    router.navigateByUrl('/login');
   }
 
 }

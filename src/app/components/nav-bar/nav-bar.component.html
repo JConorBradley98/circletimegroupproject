@@ -1,5 +1,8 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light">
     <div class="container">
-        <h2><a class="navbar-brand" [routerLink]="['/circle-time']">CircleTime</a></h2>
+        <div [hidden]="this.router.url==='/login'">
+            <h2><a class="navbar-brand" [routerLink]="['/circle-time']">CircleTime</a></h2>
+            <button class="btn btn-primary" style="float: right;" (click)="logoutOfCircleTime()"> Sign Out</button>
+        </div>
     </div>
 </nav>
