@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User, UserType } from '../../models';
+import { AuthService } from '../../index'
 
 @Component({
   selector: 'app-login',
@@ -10,8 +11,9 @@ import { User, UserType } from '../../models';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthService) {
     this.router = router;
+    this.authService = authService;
   }
 
   userLogin = new FormGroup(
@@ -43,9 +45,13 @@ export class LoginComponent implements OnInit {
 
 
   loginToCircleTime() {
+
+    this.userLogin.get
     // If user is in either teacher or user array
     // Accept user -> Store in localStorage -> Navigate to Consent -> Dashboard
     // Else, Decline User -> Show Error Message
+
+    // this.authService.login()
     this.router.navigateByUrl('/consent');
   }
 
