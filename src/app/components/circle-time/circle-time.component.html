@@ -1,29 +1,72 @@
 <app-nav-bar></app-nav-bar>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-            <div id="div1" (drop)="dropItem($event)" (dragover)="allowDrop($event)">
+
+        <!-- Pillow Images -->
+        <div class="row">
+            <div class="col-md-5"></div>
+                <div class="col-md-1">
+                    <div id="div1" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
+                    <img id="img1" src='{{images[1]}}' width="218" height="138">
+                </div>
+            <div class="col-md-5"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+                <div id="div1" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
+                <img id="img1" src='{{images[2]}}' width="218" height="138">
+            </div>
+            <div class="col-md-9"></div>
+            <div class="col-md-1">
+                <div id="div1" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
+                <img id="img1" src='{{images[3]}}' width="218" height="138">
             </div>
         </div>
-        <div class="col-md-1"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-5">
-            <div id="div2" (drop)="dropItem($event)" (dragover)="allowDrop($event)">
+        <div class="row">
+            <div class="col-md-1">
+                <div id="div1" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
+                <img id="img1" src='{{images[4]}}' width="218" height="138">
+            </div>
+            <div class="col-md-9"></div>
+            <div class="col-md-1">
+                <div id="div1" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
+                <img id="img1" src='{{images[5]}}' width="218" height="138">
             </div>
         </div>
-        <div class="col-md-2"></div>
-        <div class="col-md-5">
-            <div id="div3" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
+        <div class="row">
+            <div class="col-md-5"></div>
+                <div class="col-md-1" >
+                    <div id="div1" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
+                    <img id="img1" src='{{images[6]}}' width="218" height="138">
+                </div>
+            <div class="col-md-5"></div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-            <img id='drag-teddy' src='{{images[0]}}' draggable="true" (dragstart)="dragItem($event)" width="143" height="199">
+
+        <!-- Teddy Image -->
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <img id='drag-teddy' src='{{images[0]}}' draggable="true" (dragstart)="dragItem($event)" width="71" height="100">
+            </div>
+            <div class="col-md-1"></div>
         </div>
-        <div class="col-md-1"></div>
-    </div>
+
+        <!-- <Script>
+        <div *ngFor='let image of images'>
+        var i;
+        for (i = 0; i < images.length; i++) {
+
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <img id="img1" src='{{images[i]}}' (drop)="dropItem($event)" (dragover)="allowDrop($event)">
+          </div>
+                <div class="col-md-1"></div>
+            </div>
+
+        } 
+
+        <div *ngFor='let image of images'></div>
+        </Script> -->
+
 </div>
