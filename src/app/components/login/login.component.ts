@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User, UserType } from '../../models';
 import { AuthService } from '../../index'
@@ -11,48 +11,48 @@ import { AuthService } from '../../index'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router, private authService: AuthService) {
+  userLogin;
+
+  loginErrorFlag = false;
+
+  constructor(private router: Router, private authService: AuthService, private formBuilder: FormBuilder) {
     this.router = router;
     this.authService = authService;
+    this.userLogin = this.formBuilder.group({
+      userEmail: ['', [Validators.required, Validators.minLength(4)]],
+      userPassword: ['', [Validators.required]]
+    });
   }
-
-  userLogin = new FormGroup(
-    {
-      userEmail: new FormControl(
-        [Validators.required, Validators.minLength(4)]
-      ),
-      userPassword: new FormControl(
-        Validators.required
-      )
-    }
-  );
 
   users: User[] = [
-    { email: 'jillsmith02@c2kni.org', password: 'password123', userType: UserType.Teacher },
-    { email: 'joebloggs01@c2kni.org', password: 'password456', userType: UserType.Teacher },
-    { email: 'ollieowens04@c2kni.org', password: 'password789', userType: UserType.Pupil },
-    { email: 'miamurray07@c2kni.org', password: 'password1011', userType: UserType.Pupil },
+    { name: 'Jill Smith', email: 'jillsmith02@c2kni.org', password: 'password123', userType: UserType.Teacher },
+    { name: 'Joe Bloggs', email: 'joebloggs01@c2kni.org', password: 'password456', userType: UserType.Teacher },
+    { name: 'Ollie Owens', email: 'ollieowens04@c2kni.org', password: 'password789', userType: UserType.Pupil },
+    { name: 'Jill Smith', email: 'miamurray07@c2kni.org', password: 'password1011', userType: UserType.Pupil },
   ];
 
-
-
   ngOnInit(): void {
-    // Clear localStorage to prevent navigation
-    localStorage.clear();
-    // this.authenticateUser()
+    this.authService.reDirect(this.router);
 
   }
 
-
   loginToCircleTime() {
-
-    this.userLogin.get
     // If user is in either teacher or user array
     // Accept user -> Store in localStorage -> Navigate to Consent -> Dashboard
     // Else, Decline User -> Show Error Message
-
-    // this.authService.login()
-    this.router.navigateByUrl('/consent');
+    let currentUser = [this.userLogin.get('userEmail').value, this.userLogin.get('userPassword').value];
+    for (let index of this.users) {
+      if (currentUser[0] === index.email && currentUser[1] === index.password) {
+        this.authService.login(index);
+        if (index.userType === UserType.Teacher) {
+          this.router.navigateByUrl('/circle-time');
+        } else {
+          this.router.navigateByUrl('/consent');
+        }
+      } else {
+        this.loginErrorFlag = true;
+      }
+    }
   }
 
 }
