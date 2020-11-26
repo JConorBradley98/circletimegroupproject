@@ -12,13 +12,13 @@ export class CircleTimeComponent implements OnInit {
   personSpeaking;
   localUser;
 
-  pillows : Pillow[] = [
-    {image: "../../../assets/pillow_blue.png", name: "Harry Styles"},
-    {image: "../../../assets/pillow_green.png", name: "Amy Smyth"},
-    {image: "../../../assets/pillow_magenta.png", name: "Aleks Stanek"},
-    {image: "../../../assets/pillow_purple.png", name: "Sofie Ludwig"},
-    {image: "../../../assets/pillow_red.png", name: "Mateusz Molga"},
-    {image: "../../../assets/pillow_turquoise.png", name: " "}
+  pillows: Pillow[] = [
+    { image: "../../../assets/pillow_blue.png", name: "Harry Styles" },
+    { image: "../../../assets/pillow_green.png", name: "Amy Smyth" },
+    { image: "../../../assets/pillow_magenta.png", name: "Aleks Stanek" },
+    { image: "../../../assets/pillow_purple.png", name: "Sofie Ludwig" },
+    { image: "../../../assets/pillow_red.png", name: "Mateusz Molga" },
+    { image: "../../../assets/pillow_turquoise.png", name: " " }
   ];
 
   images = [
@@ -35,7 +35,12 @@ export class CircleTimeComponent implements OnInit {
   ngOnInit(): void {
     this.authService.reDirect(this.router);
     this.personSpeaking = 'Jill Smith';
-    this.pillows[5].name = localStorage.getItem('USER_NAME');
+    if (localStorage.getItem('ACCESS_TOKEN') === 'access_token_teacher') {
+      this.pillows[5].name = 'Mia Murray';
+    } else {
+      this.pillows[5].name = localStorage.getItem('USER_NAME');
+    }
+
   }
 
   allowDrop(ev) {
