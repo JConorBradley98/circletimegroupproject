@@ -6,12 +6,13 @@ Its purpose is to enthuse Children through learning by digitally creating the "c
 
 # Login Credentials
 
-Teacher Login:
-    - Email: jillsmith02@c2kni.org
-    - Password: password123
-Pupil Login:
-    - Email: miamurray07@c2kni.org
-    - Password: password1011
+### Teacher Login:
+Email: jillsmith02@c2kni.org
+Password: password123
+
+### Pupil Login:
+Email: miamurray07@c2kni.org
+Password: password1011
 
 ## Development server
 
