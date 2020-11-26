@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     { name: 'Jill Smith', email: 'jillsmith02@c2kni.org', password: 'password123', userType: UserType.Teacher },
     { name: 'Joe Bloggs', email: 'joebloggs01@c2kni.org', password: 'password456', userType: UserType.Teacher },
     { name: 'Ollie Owens', email: 'ollieowens04@c2kni.org', password: 'password789', userType: UserType.Pupil },
-    { name: 'Jill Smith', email: 'miamurray07@c2kni.org', password: 'password1011', userType: UserType.Pupil },
+    { name: 'Mia Murray', email: 'miamurray07@c2kni.org', password: 'password1011', userType: UserType.Pupil },
   ];
 
   ngOnInit(): void {

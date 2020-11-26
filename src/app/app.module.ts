@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CircleTimeComponent, ConsentScreenComponent, LoginComponent } from './components';
+import { CircleTimeComponent, ConsentScreenComponent, LoginComponent, ShowTellComponent } from './components';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -14,7 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     ConsentScreenComponent,
     CircleTimeComponent,
-    NavBarComponent
+    NavBarComponent,
+    ShowTellComponent
   ],
   imports: [
     BrowserModule,
