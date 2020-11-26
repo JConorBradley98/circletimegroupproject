@@ -1,73 +1,77 @@
 <div class="container">
 
     <!-- Blue Pillow -->
-        <div class="row">
-            <div class="col-md-5"></div>
+    <div class="row">
+        <div class="col-md-5"></div>
 
-                <div class="col-md-2">
-                    <div id="div1" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
-                    <img id="img1" src='{{images[1]}}' width="218" height="138">
-                </div>
-
-            <div class="col-md-5"></div>
+        <div class="col-md-2" >
+            <div class="div1" id="0" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
+            <img id="img1" src='{{pillows[0].image}}' width="218" height="138">
         </div>
 
+        <div class="col-md-5"></div>
+    </div>
+ 
     <!-- Green Pillow and Pink Pillow -->
-        <div class="row">
-        <div class="col-md-4">
-            <div id="div1" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
-            <img id="img1" src='{{images[2]}}' width="218" height="138">
+    <div class="row">
+        <div class="col-md-4" >
+            <div class="div1" id="1" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
+            <img id="img1" src='{{pillows[1].image}}' width="218" height="138">
 
-            <div id="div1" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
-            <img id="img1" src='{{images[3]}}' width="218" height="138">
+            <div class="div1" id="2" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
+            <img id="img1" src='{{pillows[2].image}}' width="218" height="138">
         </div>
-    <!-- Circle Time Whos Talking-->
+        <!-- Circle Time Who's Talking-->
         <div class="col-md-6">
             <div class="container" id="image">
                 <br><br><br><br>
-                <img src={{images[9]}} style="width:100%;">
-                <div class="centered"><h1><br>...<br>are speaking</h1></div>
-              </div>
-        </div>
-    
-    <!-- Purple Pillow and Red Pillow-->
-        <div class="col-md-2">
-            <div id="div1" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
-            <img id="img1" src='{{images[4]}}' width="218" height="138">
-
-            <div id="div1" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
-            <img id="img1" src='{{images[5]}}' width="218" height="138">
-        </div>
-        </div>
-        
-         <!-- turquoise Pillow -->
-        <div class="row"> 
-            <div class="col-md-5"></div>
-
-                <div class="col-md-2">
-                    <div id="div1" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
-                    <img id="img1" src='{{images[6]}}' width="218" height="138">
+                <img src={{images[2]}} style="width:100%;">
+                <div class="centered">
+                    <h1><br>{{this.personSpeaking ? this.personSpeaking : '...'}}<br>is speaking</h1>
                 </div>
-
-            <div class="col-md-5"></div>
+            </div>
         </div>
 
-        <!-- Teddy Image -->
-        <div class="row">
+        <!-- Purple Pillow and Red Pillow-->
+        <div class="col-md-2">
+            <div class="div1" id="3" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
+            <img id="img1" src='{{pillows[3].image}}' width="218" height="138">
 
-            <div class="col-md-2">
-                <img id='Handup' src='{{images[8]}}' width="71" height="100">
-            </div>
+            <div class="div1" id="4" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
+            <img id="img1" src='{{pillows[4].image}}' width="218" height="138">
+        </div>
+    </div>
 
-            <div class="col-md-2">
-                <img id='drag-teddy' src='{{images[0]}}' draggable="true" (dragstart)="dragItem($event)" width="71" height="100">
-            </div>
+    <!-- Turquoise Pillow -->
+    <div class="row">
+        <div class="col-md-5"></div>
 
-            <div class="col-md-2">
-                
-            </div>
-
-            <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <div class="div1" id="5" (drop)="dropItem($event)" (dragover)="allowDrop($event)"></div>
+            <img id="img1" src='{{pillows[5].image}}' width="218" height="138">
         </div>
 
+        <div class="col-md-5"></div>
+    </div>
+
+    <!-- Teddy Image -->
+    <div class="row">
+
+        <div class="col-md-2" >
+
+            <img id='Handup' *ngIf="this.userTypeCheck() === true" src='{{images[0]}}' width="71" height="100">
+
+        </div>
+
+        <div class="col-md-2">
+            <img id='drag-teddy' src='{{images[1]}}' draggable="true" (dragstart)="dragItem($event)" width="71"
+                height="100">
+        </div>
+
+        <div class="col-md-2">
+
+        </div>
+
+        <div class="col-md-2"></div>
+    </div>
 </div>

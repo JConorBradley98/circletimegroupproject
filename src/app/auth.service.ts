@@ -30,7 +30,9 @@ export class AuthService {
 
   public reDirect(router: Router) {
     if (this.isLoggedIn() === true) {
-      router.navigateByUrl('/circle-time');
+      if (localStorage.getItem('ACCESS_TOKEN') === 'access_token_teacher') {
+        router.navigateByUrl('/circle-time');
+      }
     }
   }
 

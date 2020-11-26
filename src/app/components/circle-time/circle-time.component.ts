@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { AuthService } from '../../index'
 import { Router } from '@angular/router';
+import { Pillow } from 'src/app/models';
 @Component({
   selector: 'app-circle-time',
   templateUrl: './circle-time.component.html',
@@ -9,16 +9,21 @@ import { Router } from '@angular/router';
 })
 export class CircleTimeComponent implements OnInit {
 
+  personSpeaking;
+  localUser;
+
+  pillows : Pillow[] = [
+    {image: "../../../assets/pillow_blue.png", name: "Harry Styles"},
+    {image: "../../../assets/pillow_green.png", name: "Amy Smyth"},
+    {image: "../../../assets/pillow_magenta.png", name: "Aleks Stanek"},
+    {image: "../../../assets/pillow_purple.png", name: "Sofie Ludwig"},
+    {image: "../../../assets/pillow_red.png", name: "Mateusz Molga"},
+    {image: "../../../assets/pillow_turquoise.png", name: " "}
+  ];
+
   images = [
-    "../../../assets/teddy.png",
-    "../../../assets/pillow_blue.png",
-    "../../../assets/pillow_green.png",
-    "../../../assets/pillow_magenta.png",
-    "../../../assets/pillow_purple.png",
-    "../../../assets/pillow_red.png",
-    "../../../assets/pillow_turquoise.png",
-    "../../../assets/pillow_yellow.png",
     "../../../assets/handup.png",
+    "../../../assets/teddy.png",
     "../../../assets/ellipse.png"
   ];
 
@@ -29,6 +34,8 @@ export class CircleTimeComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.reDirect(this.router);
+    this.personSpeaking = 'Jill Smith';
+    this.pillows[5].name = localStorage.getItem('USER_NAME');
   }
 
   allowDrop(ev) {
@@ -41,9 +48,19 @@ export class CircleTimeComponent implements OnInit {
 
   dropItem(ev) {
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
+    let data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
-
+    let parentElement = document.getElementById(data).parentElement;
+    this.personSpeaking = this.pillows[parentElement.id].name;
   }
+
+  userTypeCheck() {
+    if (localStorage.getItem('ACCESS_TOKEN') === 'access_token_pupil') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }
 
